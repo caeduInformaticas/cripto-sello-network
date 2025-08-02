@@ -9,7 +9,7 @@ import {Ownable} from "@openzeppelin/contracts@5.3.0/access/Ownable.sol";
 
 contract CriptoSello is ERC721, ERC721URIStorage, ERC721Pausable, Ownable {
     constructor(address initialOwner)
-        ERC721("CriptoSello", "CS")
+        ERC721("CriptSello", "CS")
         Ownable(initialOwner)
     {}
 
