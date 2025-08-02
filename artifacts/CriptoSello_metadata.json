@@ -11,6 +11,11 @@
 						"internalType": "address",
 						"name": "initialOwner",
 						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_ddrr",
+						"type": "address"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -341,6 +346,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "ddrr",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -354,6 +372,35 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getPropertyInfo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "enum CriptoSello.TokenState",
+						"name": "state",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "uri",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -384,6 +431,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "uri",
+						"type": "string"
+					}
+				],
+				"name": "mintProperty",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -391,6 +462,19 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "notary",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -449,19 +533,7 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "renounceOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [
-					{
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
 					{
 						"internalType": "uint256",
 						"name": "tokenId",
@@ -469,11 +541,18 @@
 					},
 					{
 						"internalType": "string",
-						"name": "uri",
+						"name": "newUri",
 						"type": "string"
 					}
 				],
-				"name": "safeMint",
+				"name": "registerProperty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -550,6 +629,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "_ddrr",
+						"type": "address"
+					}
+				],
+				"name": "setDDRR",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "bytes4",
 						"name": "interfaceId",
 						"type": "bytes4"
@@ -574,6 +666,25 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenStates",
+				"outputs": [
+					{
+						"internalType": "enum CriptoSello.TokenState",
+						"name": "",
+						"type": "uint8"
 					}
 				],
 				"stateMutability": "view",
@@ -637,6 +748,19 @@
 			{
 				"inputs": [],
 				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "validateProperty",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -996,11 +1120,11 @@
 			]
 		},
 		"contract-bf046e44b0.sol": {
-			"keccak256": "0xea224561e684902e4658f5bf795a7bc352c5b4d42932f9c3c08ec32cdc9eb6b1",
+			"keccak256": "0xe6b1ffb8dac39ec575a809cb3a703069c884cd137733db90ba55b6e8b5e80610",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8ee6873a42908b8b5e4a4967f03dea9a816e4899f55bb5695d12bb325565ab10",
-				"dweb:/ipfs/QmWkAXMDPUetFMiW82ttxbwkCMBYye354EYKqLWbV1jgQu"
+				"bzz-raw://bd114ef2cfa3c55cc44b1a89c5b4aeeeacd2dfc9fc91f19b124f898ba458ac7e",
+				"dweb:/ipfs/QmcUHGenA7n6Gm6faev6w3ofXLSFDqVnK4KQ2gTdeWDok7"
 			]
 		}
 	},
