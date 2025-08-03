@@ -52,25 +52,25 @@ contract CriptoSello is ERC721, ERC721URIStorage, ERC721Pausable, Ownable {
      * @return tokenId El identificador único del NFT generado (uint256)
      */
     function mintProperty(address to, uint256 documentId, string memory uri)
-        public
-        onlyNotary
-        returns (uint256 tokenId)
-    {
-        // Genera tokenId como hash seguro
-        tokenId = uint256(keccak256(abi.encodePacked(to, documentId, uri)));
+    public
+    onlyNotary
+    returns (uint256 tokenId)
+{
+    // Genera tokenId como hash seguro
+    tokenId = uint256(keccak256(abi.encodePacked(to, documentId, uri)));
 
-        // Validar que no exista aún (usando try-catch con ownerOf)
-        try this.ownerOf(tokenId) returns (address) {
-            revert("La propiedad ya existe (tokenId duplicado)");
-        } catch {
-            // OK: tokenId no existe
-        }
-
-        _safeMint(to, tokenId);
-        _setTokenURI(tokenId, uri);
-        tokenStates[tokenId] = TokenState.IN_NOTARY;
-        return tokenId;
+    // Validar que no exista aún (usando try-catch con ownerOf)
+    try this.ownerOf(tokenId) returns (address) {
+        revert("La propiedad ya existe (tokenId duplicado)");
+    } catch {
+        // OK: tokenId no existe
     }
+
+    _safeMint(to, tokenId);
+    _setTokenURI(tokenId, uri);
+    tokenStates[tokenId] = TokenState.IN_NOTARY;
+    return tokenId;
+}
 
 
     // Validar documentación (solo Notaría)
